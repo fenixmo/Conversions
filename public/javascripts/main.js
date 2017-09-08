@@ -1,12 +1,20 @@
 $(document).ready(function () {
+
+  fx.base = "USD";
+  fx.settings = {
+    from: "USD"
+  };
   handler()
+
 })
 
-var url = 'http://api.fixer.io/latest?base=USD';
+
 function handler() {
+  var url = 'http://api.fixer.io/latest?base=USD';
   $.getJSON(url, function (data) {
     console.log(data);
     if (typeof fx !== 'undefined' && fx.rates) {
+      console.log("success");
       fx.rates = data.rates;
       fx.base = data.base;
     } else {

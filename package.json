@@ -1,17 +1,21 @@
 {
-  "name": "conversions",
-  "version": "0.0.0",
+  "name": "client",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "start": "PORT=3001 node ./bin/www"
-  },
   "dependencies": {
-    "body-parser": "~1.17.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
-    "express": "~4.15.2",
-    "morgan": "~1.8.1",
-    "pug": "~2.0.0-beta11",
-    "serve-favicon": "~2.4.2"
-  }
+    "axios": "^0.17.0",
+    "lodash": "^4.17.4",
+    "material-ui": "^0.19.4",
+    "money": "^0.2.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3001"
 }

@@ -1,15 +1,15 @@
 $(document).ready(function () {
 
+  ratesGetter();
   fx.base = "USD";
   fx.settings = {
     from: "USD"
   };
-  handler()
 
 })
 
 
-function handler() {
+function ratesGetter() {
   var url = 'http://api.fixer.io/latest?base=USD';
   $.getJSON(url, function (data) {
     console.log(data);
@@ -20,7 +20,7 @@ function handler() {
     } else {
       var fxSetup = {
         rates: data.rates,
-        base: data.base
+        base: data.base,
       }
     }
   })

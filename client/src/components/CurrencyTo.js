@@ -1,34 +1,32 @@
-import React, { Component } from 'react';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from  'material-ui/MenuItem';
-import { currencies } from './CurrencyFrom'; 
+// import React, { Component } from 'react';
+// import SelectField from 'material-ui/SelectField';
+// import { currencies } from './CurrencyFrom'; 
 
-const styles = {
-    customWidth: {
-        width: 120,
-    },
-};
+// const styles = {
+//     customWidth: {
+//         width: 120,
+//     }
+// };
 
-export default class ToSelector extends Component {
-    state = {
-        value: null,
-    };
+// export default class ToSelector extends Component {
+//     state = {
+//         toValue: null,
+//     };
 
-    handleChange = (event, index, value) => this.setState({value});
+//     handleToChange = (event, index, toValue) => this.setState({toValue});
     
-    render() {
-        return (
-            <div>
-                <SelectField value={this.state.value}
-                            onChange={this.handleChange}
-                            floatingLabelText="Currency To"
-                            style={styles.customWidth} >
-                    { currencies }
-                </SelectField>
-            </div>
-        )
-    }
-}
-
-
-  
+//     render() {
+//         return (
+//             <div>
+//                 <div>
+//                     <SelectField value={this.state.toValue}
+//                                 onChange={this.handleToChange}
+//                                 floatingLabelText="Currency To"
+//                                 style={styles.customWidth} >
+//                         { currencies }
+//                     </SelectField>
+//                 </div>
+//             </div>
+//         )
+//     }
+// }

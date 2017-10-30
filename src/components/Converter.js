@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-import { map } from 'lodash'
+import { map } from 'lodash';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardText} from 'material-ui/Card';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from  'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
-var fx = require('money')
-  
+var fx = require('money');
 
 const styles = {
-    customWidth: {
-        width: 120,
+
+    margin: 12,
+    bodi: {
+        display: "flex",
+        flexDirection: "column",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "0.01em",
+        float: "left",
+        width: "100%"
     },
-    margin: 12
+    title: {
+        color: "#3a3a3a"
+    }
 }
 
 class Converter extends Component {
@@ -62,9 +72,9 @@ class Converter extends Component {
         };
     }
 
-    handleToChange = (event, index, toValue) => this.setState({toValue});
-    handleFromChange = (event, index, fromValue) => this.setState({fromValue});
-    handleAmountChange= (event, amountValue) => this.setState({amountValue})
+    handleToChange = (e, index, toValue) => this.setState({toValue});
+    handleFromChange = (e, index, fromValue) => this.setState({fromValue});
+    handleAmountChange= (e, amountValue) => this.setState({amountValue})
     
     convert = () => {
         const amount = this.state.amountValue;
@@ -74,45 +84,48 @@ class Converter extends Component {
 
     render() {
         return(
-            <div>
-                <div>
-                    <SelectField value={this.state.fromValue}
-                                onChange={this.handleFromChange}
-                                floatingLabelText="Currency From"
-                                style={styles.customWidth}
-                                maxHeight={200} >
-                        { this.state.currencies }
-                    </SelectField>
-                </div>
-                <div>
-                    <TextField
-                        value={this.state.amountValue}
-                        onChange={this.handleAmountChange}
-                        hintText="Amount From"
-                        style={styles.customWidth}
-                        type="number"
-                    />
-                </div>
-                <div>
-                    <SelectField value={this.state.toValue}
-                                onChange={this.handleToChange}
-                                floatingLabelText="Currency To"
-                                style={styles.customWidth}
-                                maxHeight={200} >
-                        { this.state.currencies }
-                    </SelectField>
-                </div>
-                <br/>
-                <div>
-                    <RaisedButton  label="Convert" primary={true} style={styles} onClick={this.convert}/>
-                </div>
-                <br/>
-                <div>
-                    <Card>
-                        <CardText>
-                            {this.state.converted}
-                        </CardText>
-                    </Card>
+            <div style={styles.bodi}>
+                <div >
+                    <h1 style={styles.title}>Currency Converter</h1>
+                    <div>
+                        <SelectField value={this.state.fromValue}
+                                    onChange={this.handleFromChange}
+                                    floatingLabelText="Currency From"
+                                    style={styles.customWidth}
+                                    maxHeight={200} >
+                            { this.state.currencies }
+                        </SelectField>
+                    </div>
+                    <div>
+                        <TextField
+                            value={this.state.amountValue}
+                            onChange={this.handleAmountChange}
+                            hintText="Amount From"
+                            style={styles.customWidth}
+                            type="number"
+                        />
+                    </div>
+                    <div>
+                        <SelectField value={this.state.toValue}
+                                    onChange={this.handleToChange}
+                                    floatingLabelText="Currency To"
+                                    style={styles.customWidth}
+                                    maxHeight={200} >
+                            { this.state.currencies }
+                        </SelectField>
+                    </div>
+                    <br/>
+                    <div>
+                        <RaisedButton  label="Convert" primary={true} style={styles} onClick={this.convert}/>
+                    </div>
+                    <br/>
+                    <div>
+                        <Card>
+                            <CardText>
+                                {this.state.converted}
+                            </CardText>
+                        </Card>
+                    </div>
                 </div>
             </div>
         )
